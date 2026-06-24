@@ -1,0 +1,15 @@
+__turbopack_load_page_chunks__("/", [
+  "static/chunks/4399c41360ec7e36.js",
+  "static/chunks/e3a8252cd54c3f2d.js",
+  "static/chunks/f125e46c6e2cd5c1.js",
+  "static/chunks/7c6102ea26fcb2dc.js",
+  "static/chunks/1aa564fb759c1ebd.js",
+  "static/chunks/f6aa0428dd4d37e7.js",
+  "static/chunks/34070367852ba066.js",
+  "static/chunks/64a200a3fa70750f.js",
+  "static/chunks/7d327d0eed4c7348.js",
+  "static/chunks/8ce9f54e00d2f555.js",
+  "static/chunks/turbopack-c7716cf4d6ee1eea.js"
+])
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="3b23cce9-064f-5227-9e98-6655d1d9ed5d")}catch(e){}}();
+//# debugId=3b23cce9-064f-5227-9e98-6655d1d9ed5d

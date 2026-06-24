@@ -1,0 +1,27 @@
+__turbopack_load_page_chunks__("/[locale]/profile/request-serie", [
+  "static/chunks/0bec39fdd9809bff.js",
+  "static/chunks/055060a8cd3909c4.js",
+  "static/chunks/f4b2ea25aa8f9378.js",
+  "static/chunks/a5de2eef99bfa6c2.js",
+  "static/chunks/1c19e7b3df2100d6.js",
+  "static/chunks/ece8b1ba65b4d778.js",
+  "static/chunks/1e19b7795cec3f66.js",
+  "static/chunks/1aa564fb759c1ebd.js",
+  "static/chunks/6d6385c8a97ba8e0.js",
+  "static/chunks/36f7a94c6a3ad4b4.js",
+  "static/chunks/3c816205c5098448.js",
+  "static/chunks/64a200a3fa70750f.js",
+  "static/chunks/f6aa0428dd4d37e7.js",
+  "static/chunks/562a95bc674887e7.js",
+  "static/chunks/1490cfb8a7633ff9.js",
+  "static/chunks/8ce9f54e00d2f555.js",
+  "static/chunks/34070367852ba066.js",
+  "static/chunks/31531bca7a6851c2.js",
+  "static/chunks/5b20248b7c652da1.js",
+  "static/chunks/041f022d83a647b0.js",
+  "static/chunks/f125e46c6e2cd5c1.js",
+  "static/chunks/a51d13ea091bbb8c.js",
+  "static/chunks/turbopack-be029f3ae18bf9e7.js"
+])
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="de1eb405-bbdc-5bfa-bfdb-f9204322939c")}catch(e){}}();
+//# debugId=de1eb405-bbdc-5bfa-bfdb-f9204322939c

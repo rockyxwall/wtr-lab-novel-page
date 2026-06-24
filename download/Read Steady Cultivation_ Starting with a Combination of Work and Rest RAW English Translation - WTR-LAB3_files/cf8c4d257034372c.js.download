@@ -1,0 +1,32 @@
+__turbopack_load_page_chunks__("/[locale]/ranking/[type]", [
+  "static/chunks/c74a9660d591bc31.js",
+  "static/chunks/200a2839e59a4303.js",
+  "static/chunks/1aa564fb759c1ebd.js",
+  "static/chunks/5b20248b7c652da1.js",
+  "static/chunks/97d22cb7d80f03e7.js",
+  "static/chunks/c93427ee65cfa360.js",
+  "static/chunks/fade602ba06fdac4.js",
+  "static/chunks/64a200a3fa70750f.js",
+  "static/chunks/a721a51bdead4c46.js",
+  "static/chunks/059fc1c8774f3bc6.js",
+  "static/chunks/6a7a63a31aa9827f.js",
+  "static/chunks/ddc5f2a5272585b3.js",
+  "static/chunks/f125e46c6e2cd5c1.js",
+  "static/chunks/041f022d83a647b0.js",
+  "static/chunks/4ed7a3b5b0a958c6.js",
+  "static/chunks/515505cf083caca0.js",
+  "static/chunks/5a2085881ddd04d5.js",
+  "static/chunks/8ce9f54e00d2f555.js",
+  "static/chunks/7c6102ea26fcb2dc.js",
+  "static/chunks/be6cb443a41c4a8e.js",
+  "static/chunks/1ac53cd0548b2be9.js",
+  "static/chunks/a51d13ea091bbb8c.js",
+  "static/chunks/4f37e3d4098c4894.js",
+  "static/chunks/34070367852ba066.js",
+  "static/chunks/f4d410ad0614bf3a.js",
+  "static/chunks/f6aa0428dd4d37e7.js",
+  "static/chunks/6be99c1b40a88653.js",
+  "static/chunks/turbopack-0e9dce15a5a9f075.js"
+])
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="7e238492-5383-5cee-a91f-812613411e5e")}catch(e){}}();
+//# debugId=7e238492-5383-5cee-a91f-812613411e5e
