@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #1b1d23;
+  --color-foreground: #a9a9a9;
+  --color-card: #1f2129;
+  --color-card-foreground: #ccc;
+  --color-popover: #23272c;
+  --color-popover-foreground: #ccc;
+  --color-primary: #5795d9;
+  --color-primary-foreground: #eef2ff;
+  --color-secondary: #444e5b;
+  --color-secondary-foreground: #eee;
+  --color-muted: #111;
+  --color-muted-foreground: #a9b1b7;
+  --color-accent: #47566c;
+  --color-accent-foreground: #fafafa;
+  --color-destructive: #dc3545;
+  --color-destructive-foreground: #fff;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.15);
+  --color-ring: #5795d9;
+  --color-sidebar: #0f1319;
+  --color-sidebar-foreground: #fafafa;
+  --color-sidebar-primary: #5795d9;
+  --color-sidebar-primary-foreground: #eef2ff;
+  --color-sidebar-accent: #1f2329;
+  --color-sidebar-accent-foreground: #fafafa;
+  --color-sidebar-border: rgba(255, 255, 255, 0.1);
+  --color-sidebar-ring: #5795d9;
+  --color-navbar: #212529;
+  --color-gold: #ffc107;
+  --color-silver: silver;
+  --color-bronze: #cd7f32;
+  --color-ticket-gold: #d99c2b;
+  --color-review-rate-5: #22c55e;
+  --color-review-rate-4: #84cc16;
+  --color-review-rate-3: #eab308;
+  --color-review-rate-2: #f97316;
+  --color-review-rate-1: #ef4444;
+  --color-wtr: #fd7e14;
+  --radius: 0.5rem;
+}
+
+:root {
+  --navbar: #212529;
+  --review-rate-5: #22c55e;
+  --review-rate-4: #84cc16;
+  --review-rate-3: #eab308;
+  --review-rate-2: #f97316;
+  --review-rate-1: #ef4444;
+}

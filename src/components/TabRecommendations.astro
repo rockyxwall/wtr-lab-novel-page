@@ -1,41 +1,45 @@
 ---
 export interface Props {
-  recommendations?: Array<{ title: string; cover?: string; rating?: number; url?: string }>;
+  recommendations?: Array<{ title: string; cover?: string; rating?: number; url?: string; chapters?: number }>;
 }
 const { recommendations = [] } = Astro.props;
 ---
 
-<div data-orientation="horizontal" data-activation-direction="right" id="panel-recommendations" role="tabpanel" tabindex="-1" data-index="3" data-slot="tabs-content" class="flex-1 text-sm outline-none" aria-labelledby="tab-recommendations" inert="" data-hidden="" hidden="">
-  <div class="px-2.5">
-    <div class="flex items-center justify-between gap-2 mt-4 mb-2 pl-2.5 border-l-2 border-l-primary">
-      <span class="flex-1 text-base font-semibold text-card-foreground">Recommendations</span>
-    </div>
 
-    {recommendations.length > 0 ? (
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+<div data-orientation="horizontal" data-activation-direction="right" id="panel-recommendations" role="tabpanel" tabindex="-1" data-index="3" data-slot="tabs-content" class="flex-1 text-sm outline-none" aria-labelledby="tab-recommendations" inert="" data-hidden="" hidden="">
+  <div class="flex items-center justify-between gap-2 mt-4 mb-2 pl-2.5 border-l-2 border-l-primary">
+    <span class="flex-1 text-base font-semibold text-card-foreground">Similar Novels</span>
+  </div>
+
+  {recommendations.length > 0 ? (
+    <div class="relative flex h-full items-stretch overflow-hidden">
+      <div class="flex h-full gap-2 overflow-x-auto pb-1.5">
         {recommendations.map(rec => (
-          <a href={rec.url || '#'} class="group/card flex flex-col rounded-lg border border-border overflow-hidden hover:ring-1 hover:ring-primary/50 transition-all no-underline">
-            <div class="aspect-[5/7] bg-accent/20 overflow-hidden">
-              {rec.cover ? (
-                <img class="w-full h-full object-cover" src={rec.cover} alt={rec.title} loading="lazy" decoding="async" />
-              ) : (
-                <div class="w-full h-full flex items-center justify-center text-muted-foreground text-xs">No Cover</div>
-              )}
+          <div class="flex shrink-0 flex-col rounded-md bg-card text-sm text-card-foreground shadow border border-border/50 w-44 min-w-44">
+            <a target="_blank" class="block no-underline" href={rec.url || '#'}>
+              <div class="image-wrap relative rounded-md aspect-3/4 w-full rounded-b-none overflow-hidden">
+                {rec.cover ? (
+                  <img alt={rec.title} loading="lazy" decoding="async" src={rec.cover} class="w-full h-full object-cover" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                ) : (
+                  <div class="w-full h-full flex items-center justify-center bg-muted text-xs text-muted-foreground" style="position: absolute; height: 100%; width: 100%; inset: 0px;">No Cover</div>
+                )}
+              </div>
+            </a>
+            <div class="flex flex-col p-1.5 gap-0.5">
+              <a target="_blank" class="block no-underline" href={rec.url || '#'}>
+                <span class="text-xs font-semibold line-clamp-2 text-card-foreground leading-tight" translate="no">{rec.title}</span>
+              </a>
+              <div class="flex items-center gap-1">
+                {rec.rating !== undefined && <span class="text-xs text-muted-foreground">{rec.rating.toFixed(1)}</span>}
+                {rec.rating !== undefined && <span class="text-xs text-muted-foreground">/</span>}
+                {rec.chapters !== undefined && <span class="text-xs text-muted-foreground">{rec.chapters} Ch</span>}
+              </div>
             </div>
-            <div class="p-2">
-              <h3 class="text-xs font-medium text-card-foreground truncate">{rec.title}</h3>
-              {rec.rating !== undefined && (
-                <div class="flex items-center gap-0.5 mt-1">
-                  <svg class="icon inline-flex shrink-0 size-3 text-yellow-500"><use href="#star"></use></svg>
-                  <span class="text-xs text-muted-foreground">{rec.rating.toFixed(1)}</span>
-                </div>
-              )}
-            </div>
-          </a>
+          </div>
         ))}
       </div>
-    ) : (
-      <div class="py-8 text-center text-muted-foreground">No recommendations yet.</div>
-    )}
-  </div>
+    </div>
+  ) : (
+    <div class="py-8 text-center text-muted-foreground">No recommendations yet.</div>
+  )}
 </div>
