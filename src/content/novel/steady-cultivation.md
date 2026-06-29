@@ -20,10 +20,14 @@ genres:
   - Adventure
   - Fantasy
 details:
-  author: "Translation Team"
-  status: "Ongoing"
-  dateAdded: "2024-01-01"
-  year: 2024
+  author: "呆毛的小鹅"
+  authorPinyin: "Ai Mao De Xiao E"
+  authorUrl: "https://wtr-lab.com/en/author/%E5%91%86%E6%AF%9B%E7%9A%84%E5%B0%8F%E9%B9%85"
+  status: "Completed"
+  dateAdded: "May 6, 2025"
+  requested: "Shadow_King"
+  requestedUrl: "https://wtr-lab.com/en/user/Shadow_King"
+  year: 2025
   origin: "CN"
   language: "Chinese"
 rankings:

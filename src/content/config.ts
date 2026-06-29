@@ -16,8 +16,12 @@ const novel = defineCollection({
     genres: z.array(z.string()).optional(),
     details: z.object({
       author: z.string().optional(),
+      authorPinyin: z.string().optional(),
+      authorUrl: z.string().optional(),
       status: z.string().optional(),
       dateAdded: z.string().optional(),
+      requested: z.string().optional(),
+      requestedUrl: z.string().optional(),
       year: z.number().optional(),
       origin: z.string().optional(),
       language: z.string().optional(),
