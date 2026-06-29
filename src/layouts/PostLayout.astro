@@ -69,7 +69,7 @@ const details = {
   <title>{data.title} - WTR-LAB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
   <script is:inline src="/assets/js/body-01.js"></script>
   <style>
     html { scroll-behavior: smooth; }
@@ -78,9 +78,10 @@ const details = {
 <body class="wtr-adblock-off">
   <SvgSprite />
   <SvgDefs />
-  <Nav siteTitle="WTR-LAB" />
 
   <div id="__next">
+    <Nav siteTitle="WTR-LAB" />
+
     <NovelHeader
       title={data.title}
       chineseTitle={data.chineseTitle}

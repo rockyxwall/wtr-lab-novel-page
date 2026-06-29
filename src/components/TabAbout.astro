@@ -34,9 +34,18 @@ const allRankings = rankings ? [
   rankings.weekly !== undefined && { label: 'Weekly', value: `#${rankings.weekly}` },
   rankings.monthly !== undefined && { label: 'Monthly', value: `#${rankings.monthly}` },
   rankings.new !== undefined && { label: 'New', value: `#${rankings.new}` },
-  rankings.allTime !== undefined && { label: 'All', value: `#${rankings.allTime}` },
+  rankings.allTime !== undefined && { label: 'All Time', value: `#${rankings.allTime}` },
   rankings.popular !== undefined && { label: 'Popular', value: `#${rankings.popular}` },
 ].filter(Boolean) : [];
+
+const tagCategories = [
+  { name: 'Genre', items: genres },
+  { name: 'Protagonist Archetypes', items: displayTags?.filter(t => ['male', 'female', 'other'].includes(t.toLowerCase())) },
+  { name: 'Power Systems', items: displayTags?.filter(t => ['magic', 'cultivation', 'system', 'sci-fi'].includes(t.toLowerCase())) },
+  { name: 'Worldbuilding', items: displayTags?.filter(t => ['fantasy', 'modern', 'historical', 'sci-fi'].includes(t.toLowerCase())) },
+  { name: 'Socio-Political Structures', items: displayTags?.filter(t => ['kingdom', 'empire', 'military'].includes(t.toLowerCase())) },
+  { name: 'Narrative', items: displayTags?.filter(t => ['slice-of-life', 'action', 'adventure', 'comedy', 'drama', 'horror', 'mystery', 'romance', 'tragedy'].includes(t.toLowerCase())) },
+].filter(cat => cat.items && cat.items.length > 0);
 ---
 
 
@@ -61,19 +70,11 @@ const allRankings = rankings ? [
         <span class="flex-1 text-base font-semibold text-card-foreground">Author's Other Novels</span>
       </div>
       <ul class="list-none p-0 m-0 border border-border rounded-lg overflow-hidden">
-        {otherNovels.map(novel => (
-          <li class="border-b border-border last:border-b-0">
-            <a target="_blank" class="flex items-center gap-2 hover:bg-muted/50 p-2 no-underline" href={novel.url}>
-              <div class="image-wrap relative rounded-md w-10 h-14 shrink-0 overflow-hidden">
-                {novel.cover ? (
-                  <img alt={novel.title} loading="lazy" decoding="async" src={novel.cover} class="w-full h-full object-cover" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
-                ) : (
-                  <div class="w-full h-full flex items-center justify-center bg-muted text-[8px] text-muted-foreground">No Cover</div>
-                )}
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="text-sm font-medium text-card-foreground truncate" translate="no">{novel.title}</div>
-              </div>
+        {otherNovels.map((novel, i) => (
+          <li class="border-b border-border last:border-b-0 even:bg-black/[0.016] dark:even:bg-white/[0.022]">
+            <a class="group flex items-center gap-2.5 py-2 px-3.5 text-[13px] font-semibold text-[#2a2a2a] no-underline transition-colors hover:text-primary dark:text-[#c8ccdc] dark:hover:text-primary" title={novel.title} target="_blank" href={novel.url}>
+              <span class="text-[10px] font-bold text-[#ccc] min-w-[14px] text-right shrink-0 leading-none group-hover:text-primary/50 dark:text-white/[0.38] dark:group-hover:text-primary/45">{i + 1}</span>
+              {novel.title}
             </a>
           </li>
         ))}
@@ -131,19 +132,39 @@ const allRankings = rankings ? [
     </div>
   )}
 
-  <!-- Genre & Tags -->
+  <!-- Genre & Tags (bordered grid with labels/counts) -->
   {(genres && genres.length > 0) || (displayTags && displayTags.length > 0) ? (
     <div class="mb-3">
       <div class="flex items-center justify-between gap-2 mt-4 mb-2 pl-2.5 border-l-2 border-l-primary">
         <span class="flex-1 text-base font-semibold text-card-foreground">Genre & Tags</span>
       </div>
-      <div class="flex gap-1 flex-wrap">
-        {genres?.map(genre => (
-          <a href="#" class="inline-flex items-center capitalize text-xs font-medium border rounded px-1.5 py-0.5 whitespace-nowrap transition-colors border-border/70 text-card-foreground hover:bg-muted/50 hover:text-card-foreground hover:border-primary/50">{genre}</a>
+      <div class="rounded-lg overflow-hidden border border-border mb-0">
+        {tagCategories.map(cat => (
+          <div class="flex flex-wrap items-center gap-1.5 px-3.5 py-[9px] border-b border-border last:border-b-0 even:bg-black/[0.016] dark:even:bg-white/[0.022]">
+            <div class="flex items-center w-full gap-1.5 text-[10px] uppercase tracking-wider font-bold text-muted-foreground">
+              <span>{cat.name}</span>
+              <span class="text-[9px] font-normal text-muted-foreground/60">{cat.items!.length}</span>
+            </div>
+            {cat.items!.map(item => (
+              <a href="#">
+                <span class="inline-flex items-center capitalize text-xs font-medium border rounded px-1.5 py-0.5 whitespace-nowrap transition-colors border-border/70 text-card-foreground hover:bg-muted/50 hover:text-card-foreground hover:border-primary/50">{item}</span>
+              </a>
+            ))}
+          </div>
         ))}
-        {displayTags?.map(tag => (
-          <a href="#" class="inline-flex items-center capitalize text-xs font-medium border rounded py-0.5 whitespace-nowrap transition-colors border-border/70 text-card-foreground hover:bg-muted/50 hover:text-card-foreground hover:border-primary/50 px-2">{tag}</a>
-        ))}
+        {displayTags && displayTags.length > 0 && tagCategories.length === 0 && (
+          <div class="flex flex-wrap items-center gap-1.5 px-3.5 py-[9px] border-b border-border last:border-b-0 even:bg-black/[0.016] dark:even:bg-white/[0.022]">
+            <div class="flex items-center w-full gap-1.5 text-[10px] uppercase tracking-wider font-bold text-muted-foreground">
+              <span>Tags</span>
+              <span class="text-[9px] font-normal text-muted-foreground/60">{displayTags.length}</span>
+            </div>
+            {displayTags.map(tag => (
+              <a href="#">
+                <span class="inline-flex items-center capitalize text-xs font-medium border rounded px-1.5 py-0.5 whitespace-nowrap transition-colors border-border/70 text-card-foreground hover:bg-muted/50 hover:text-card-foreground hover:border-primary/50">{tag}</span>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   ) : null}
@@ -151,23 +172,48 @@ const allRankings = rankings ? [
   <!-- Novel Patrons -->
   {patrons && patrons.length > 0 && (
     <div class="mb-3">
-      <div class="flex items-center justify-between gap-2 mt-4 mb-2 pl-2.5 border-l-2 border-l-primary">
-        <svg class="icon inline-flex size-[18px] text-ticket-gold shrink-0"><use href="#crown"></use></svg>
-        <span class="flex-1 text-base font-semibold text-card-foreground">Novel Patrons</span>
-      </div>
-      <div>
+      <div class="npc-root">
+        <div class="npc-header flex items-center mt-4 mb-1.5 gap-[7px] pl-2.5 border-l-2 border-l-primary">
+          <svg class="icon inline-flex size-[18px] text-ticket-gold shrink-0"><use href="#crown"></use></svg>
+          <span class="flex-1 text-base font-semibold text-muted-foreground">Novel Patrons</span>
+          <button class="npc-showmore-btn inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground cursor-pointer bg-transparent border-none">
+            <span>View All</span>
+            <span class="npc-showmore-count inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-muted/60 text-[10px] font-semibold">{patrons.length}</span>
+          </button>
+        </div>
         <div class="npc-rows border border-border rounded-lg overflow-hidden">
           {patrons.map((p, i) => (
-            <div class="npc-row flex items-center gap-2 px-3 py-2 border-b border-border last:border-b-0" class:list={{ 'npc-gold': i === 0, 'npc-silver': i === 1, 'npc-bronze': i === 2 }}>
-              <span class="npc-rank font-bold text-sm w-6 text-center" class:list={{ 'text-yellow-500': i === 0, 'text-gray-400': i === 1, 'text-amber-700': i === 2, 'text-muted-foreground': i > 2 }}>{i + 1}</span>
-              <span class="flex-1 text-sm text-card-foreground">{p.name}</span>
+            <div class:list={[
+              'npc-row flex items-center gap-2 px-3 py-2 border-b border-border last:border-b-0',
+              i === 0 && 'npc-gold',
+              i === 1 && 'npc-silver',
+              i === 2 && 'npc-bronze'
+            ]}>
+              <span class:list={[
+                'npc-rank font-bold text-sm w-6 text-center',
+                i === 0 && 'text-yellow-500',
+                i === 1 && 'text-gray-400',
+                i === 2 && 'text-amber-700',
+                i > 2 && 'text-muted-foreground'
+              ]}>{i + 1}</span>
+              <div class="npc-row-user flex-1">
+                <a target="_blank" rel="noopener noreferrer" class="user-name relative inline-flex items-center gap-1 text-sm text-card-foreground no-underline hover:text-primary" href="#">
+                  <span>{p.name}</span>
+                  {p.rank && (
+                    <span title={`Lv. ${p.rank}`} class="w_lv -mr-1 inline-flex items-center justify-center w-4 h-4 text-[8px] font-bold rounded-full bg-muted/60 text-muted-foreground">{p.rank}</span>
+                  )}
+                </a>
+              </div>
               <span class="npc-ticket-pill inline-flex items-center gap-1 text-xs font-medium" translate="no">
-                <svg class="icon inline-flex shrink-0 size-4 npc-icon"><use href="#ticket" class:list={{ 'svg-ticket': i === 0, 'svg-silver': i === 1 }}></use></svg>
+                <svg class="icon inline-flex shrink-0 size-4 npc-icon"><use href="#ticket" class:list={{ 'svg-ticket': i === 0, 'svg-silver': i > 0 }}></use></svg>
                 <span class="npc-amount">{p.amount}</span>
               </span>
             </div>
           ))}
         </div>
+        <button class="npc-footer-btn w-full flex items-center justify-center py-2 text-xs text-muted-foreground hover:text-foreground cursor-pointer bg-transparent border border-border border-t-0 rounded-b-lg hover:bg-muted/30 transition-colors">
+          <span>+{Math.max(0, patrons.length - 3)} more patrons</span>
+        </button>
       </div>
     </div>
   )}
